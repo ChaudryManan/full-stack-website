@@ -1,0 +1,42 @@
+/* .glow-animate {
+  border: 2px solid #3A1265;
+
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #7f89f0;
+  }
+  to {
+    box-shadow: 0 0 20px #7f89f0, 0 0 30px #7f89f0;
+  }
+}
+.move{
+  position:absolute;
+  transform: translate(-50%, -50%) rotate(0deg) translateX(10px);
+  animation: rotate-circle 4s linear infinite;
+}
+@keyframes rotate-circle {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(100px);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(100px);
+  }
+} */
+::-webkit-scrollbar {
+  width: 0px;
+ /* Optional: just to ensure it's fully invisible */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
