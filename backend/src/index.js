@@ -1,22 +1,25 @@
 import connectDB from "./db/index.js";
 import app from "./app.js";
-import serverless from 'serverless-http';
+import serverless from "serverless-http";
+
+let serverlessHandler; // Renamed variable to avoid conflict
 
 // Connect to the database
 connectDB()
   .then(() => {
-    // Start the server only in a non-production environment (e.g., local development)
-    if (process.env.NODE_ENV !== 'production') {
-      const port = process.env.PORT || 8000;
-      app.listen(port, () => {
-        console.log(`Server running on port ${port}`);
-      });
-    }
+    console.log("Database connected!");
+    serverlessHandler = serverless(app); // Assign the serverless handler AFTER DB connects
   })
   .catch((err) => {
     console.error("Database connection failed:", err);
     process.exit(1);
   });
 
-// Export the serverless-wrapped app for Vercel
-export const handler = serverless(app);
+// Export the handler
+export const handler = async (event, context) => {
+  // Wait for the serverlessHandler to be initialized
+  while (!serverlessHandler) {
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  return serverlessHandler(event, context);
+};
