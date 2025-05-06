@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: "https://backend-ecomo.vercel.app/api/v1/users",
-
- 
+  baseURL: "http://localhost:8000/api/v1/users",
   withCredentials: true,
 
   headers: {
