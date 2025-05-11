@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: "https://backend-eight-rho-81.vercel.app/api/v1/users", 
+baseURL: "https://glitch-production-8e36.up.railway.app/api/v1/users",
     withCredentials: true,
 
   headers: {
