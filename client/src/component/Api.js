@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-baseURL: "http://glitch-production-8e36.up.railway/api/v1/users",
+baseURL: "https://glitch-production-8e36.up.railway/api/v1/users",
     withCredentials: true,
 
   headers: {
